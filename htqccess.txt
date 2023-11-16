@@ -1,0 +1,52 @@
+Access Hosting Control Panel:
+
+Log in to your Hostinger account and access your hosting control panel. Hostinger typically uses cPanel for shared hosting.
+
+
+Create a Subdomain (Optional):
+
+If you want to host your Flask application on a subdomain, you can create one in the control panel. For example, if your main Laravel application is hosted at "yourdomain.com," you can create a subdomain like "flask.yourdomain.com."
+Upload Your Flask Application:
+
+Use FTP or cPanel's File Manager to upload your Flask application code to the appropriate directory. This is often the "public_html" or "www" directory for web applications.
+Place your Flask application code in a subdirectory if you are using a subdomain, like "public_html/flask" or "public_html/subdomain."
+
+
+Create a Virtual Environment (Optional):
+
+If you prefer, you can set up a virtual environment for your Flask application. This is a best practice for managing dependencies. You can do this using SSH access or cPanel's Terminal.
+
+
+Configure .htaccess for Apache (if applicable):
+
+If your Hostinger account uses the Apache web server, you may need to create or modify a .htaccess file in the directory where your Flask app is located. This file can include rewrite rules to route requests to your Flask application. For example:
+RewriteEngine On 
+
+RewriteRule ^$ your_flask_app.py [L]
+
+ RewriteCond %{REQUEST_FILENAME} !-f 
+
+RewriteCond %{REQUEST_FILENAME} !-d 
+
+RewriteRule ^(.*)$ your_flask_app.py/$1 [L]
+
+
+
+Configure Server for WSGI (if applicable):
+
+For Flask applications, using a WSGI server like Gunicorn is recommended for better performance and stability. You can configure your server to run your Flask app through WSGI. This might require modifications to the server configuration, which you may need to ask Hostinger support for.
+
+
+Test Your Flask Application:
+
+Access your Flask application by entering the domain or subdomain you've set up in a web browser to ensure it's working as expected.
+
+
+Interact with Laravel:
+
+To have your Flask application interact with your Laravel application, you can make HTTP requests from Flask to your Laravel application's endpoints. You can use libraries like requests in Python to send and receive data between the two applications.
+
+
+Domain Configuration:
+
+If you've set up a subdomain, make sure to configure the DNS settings to point to the hosting server's IP address. You can do this through Hostinger's domain management interface.
